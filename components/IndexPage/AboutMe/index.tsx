@@ -21,7 +21,7 @@ const AboutMe: React.FC = () => {
     <Section>
       <SectionTitle className="mb-10">About me</SectionTitle>
       <div className="flex flex-col gap-5 md:flex-row md:gap-8 items-start">
-        <div className="flex flex-col items-center border-teal-500 border-solid border-2 md:flex-1">
+        <div className="flex flex-col items-center border-teal-500 border-2 md:flex-1 p-2 md:p-5">
           <img src="./static/img/about-me/image.jpg" alt="About Me" />
         </div>
         <div className="flex flex-col gap-5 md:flex-1">
