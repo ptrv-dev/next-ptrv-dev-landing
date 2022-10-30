@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return (
-    <header className="1 fixed z-50 w-full py-10">
+    <header className="fixed z-50 w-full py-10">
       <div className="container flex justify-between items-center">
         <Link href="/" className="shrink-0">
           <img src="./static/img/logo.svg" alt="" />
@@ -30,9 +30,9 @@ const Header: React.FC = () => {
             <path
               d="M13 5.5L8 10.5L3 5.5"
               stroke="#F5F5F4"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>

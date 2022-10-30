@@ -1,10 +1,11 @@
 import React from 'react';
+import Hero from '../components/IndexPage/Hero';
 
 const IndexPage = () => {
   return (
     <main id="main">
-      <div>
-        <h1 className="text-center text-3xl font-extrabold">Index Page</h1>
+      <div className="container">
+        <Hero />
       </div>
     </main>
   );
