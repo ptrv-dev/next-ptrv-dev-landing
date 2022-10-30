@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import AboutMe from '../components/IndexPage/AboutMe';
+import ContactMe from '../components/IndexPage/ContactMe';
 import Hero from '../components/IndexPage/Hero';
 import RecentProjects from '../components/IndexPage/RecentProjects';
 
@@ -15,6 +16,7 @@ const IndexPage = () => {
         <Hero />
         <AboutMe />
         <RecentProjects />
+        <ContactMe />
       </div>
     </main>
   );

@@ -10,7 +10,9 @@ const SectionSubtitle: React.FC<SectionSubtitleProps> = ({
   className,
 }) => {
   return (
-    <div className={`flex items-center${className ? ' ' + className : ''}`}>
+    <div
+      className={`flex flex-1 items-center${className ? ' ' + className : ''}`}
+    >
       <span className="1 w-7 h-0.5 bg-stone-50"></span>
       <h4 className="mx-2 uppercase text-lg md:text-2xl">{children}</h4>
       <span className="flex-1 h-0.5 bg-stone-50"></span>
