@@ -9,7 +9,11 @@ module.exports = {
       center: true,
       padding: '15px',
     },
-    extend: {},
+    extend: {
+      transitionProperty: {
+        position: 'left, right, top, bottom',
+      },
+    },
   },
   plugins: [],
 };

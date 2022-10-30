@@ -3,12 +3,12 @@ import Typed from 'react-typed';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative h-screen flex items-center justify-center">
-      <h1 className="text-4xl">
+    <div className="relative h-screen flex items-center justify-center bg-gradient">
+      <h1 className="text-xl md:text-3xl lg:text-4xl">
         <Typed
           strings={[
             '&gt; Hello, I&apos;m Kirill Petrov',
-            '&gt; Hello, I&apos;m Kirill Petrov <br /> &gt; I can make you a cool <span class="relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-stone-50">website</span>.',
+            '&gt; Hello, I&apos;m Kirill Petrov<br />&gt; I can make you a cool <span class="relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-stone-50">website</span>.',
           ]}
           typeSpeed={70}
         />

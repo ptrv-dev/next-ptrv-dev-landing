@@ -94,3 +94,12 @@ h6 {
 #main {
   flex: 1;
 }
+
+.bg-gradient {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #44403c 0%,
+    #363130 0.01%,
+    #292524 100%
+  );
+}
