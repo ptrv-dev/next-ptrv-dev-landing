@@ -53,8 +53,8 @@ const AboutMe: React.FC = () => {
           </div>
           <div>
             <SectionSubtitle className="mb-2">What do I use?</SectionSubtitle>
-            {skills.map((item) => (
-              <div>
+            {skills.map((item, idx) => (
+              <div key={idx}>
                 <p className="text-sm md:text-base">{item[0]}</p>
                 <div className="flex gap-4 items-center text-sm md:text-base">
                   <ProgressBar percentage={item[1]} className="flex-1" />{' '}

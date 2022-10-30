@@ -32,6 +32,7 @@ const RecentProjectsItem: React.FC<ProjectItem> = ({
         <a
           href={demoUrl}
           target={'_blank'}
+          rel="noreferrer"
           className="flex-1 text-base uppercase bg-teal-700 py-2 inline-flex justify-center"
         >
           Demo
@@ -39,6 +40,7 @@ const RecentProjectsItem: React.FC<ProjectItem> = ({
         <a
           href={gitHubUrl}
           target={'_blank'}
+          rel="noreferrer"
           className="uppercase text-base text-teal-700 inline-flex items-center gap-1 border-b-2 border-teal-700 px-4"
         >
           <svg
