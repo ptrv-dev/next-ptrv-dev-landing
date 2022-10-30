@@ -84,6 +84,10 @@ h6 {
   font-family: 'Ubuntu Mono';
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #__next {
   min-height: 100vh;
   display: flex;

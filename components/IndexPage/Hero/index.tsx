@@ -2,6 +2,7 @@ import React from 'react';
 import Typed from 'react-typed';
 
 const Hero: React.FC = () => {
+  const onScrollClick = () => {};
   return (
     <div className="relative h-screen flex items-center justify-center bg-gradient">
       <h1 className="text-xl md:text-3xl lg:text-4xl">
@@ -13,7 +14,10 @@ const Hero: React.FC = () => {
           typeSpeed={70}
         />
       </h1>
-      <button className="absolute bottom-10 animate-bounce">
+      <button
+        onClick={onScrollClick}
+        className="absolute bottom-10 animate-bounce"
+      >
         <svg
           width="30"
           height="30"
