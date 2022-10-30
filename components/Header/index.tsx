@@ -46,7 +46,7 @@ const Header: React.FC = () => {
   const onClickMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <header className="fixed z-50 w-full py-10">
+    <header className="fixed z-50 w-full py-6 md:py-10">
       <div className="container flex justify-between items-center">
         <Link href="/" className="shrink-0 z-10">
           <img src="./static/img/logo.svg" alt="" />

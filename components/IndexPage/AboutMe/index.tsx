@@ -44,11 +44,11 @@ const AboutMe: React.FC = () => {
               below on this site, as well as on my GitHub profile.
               <br />
               Completely open to cooperation, ready to answer any question you
-              have (just don't ask me what I ate this morning). The forms of
-              contact with me are listed on this site just below.
+              have (just don&apos;t ask me what I ate this morning). The forms
+              of contact with me are listed on this site just below.
               <br />
-              If you've read to this point, I want to thank you for your time
-              and attention to my portfolio, have a nice day :*
+              If you&apos;ve read to this point, I want to thank you for your
+              time and attention to my portfolio, have a nice day :*
             </p>
           </div>
           <div>

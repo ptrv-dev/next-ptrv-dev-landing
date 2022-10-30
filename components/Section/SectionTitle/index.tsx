@@ -17,7 +17,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ children, className }) => {
         {children}
       </h2>
       <span className="h-0.5 w-16 bg-stone-50"></span>
-      <h2 className="absolute text-5xl md:text-6xl uppercase top-1/2 opacity-5 -translate-y-1/2">
+      <h2 className="absolute text-4xl md:text-6xl lg:text-8xl uppercase top-1/2 opacity-5 -translate-y-1/2">
         {children}
       </h2>
     </div>
