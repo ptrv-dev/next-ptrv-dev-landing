@@ -27,7 +27,7 @@ const LanguageButton = () => {
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
+  const [isMobile, setIsMobile] = React.useState<boolean>(true);
 
   React.useEffect(() => {
     const resize = () => {
@@ -38,6 +38,7 @@ const Header: React.FC = () => {
       }
     };
     window.addEventListener('resize', resize);
+    if (!(window.innerWidth < 768)) setIsMobile(false);
 
     return () => window.removeEventListener('resize', resize);
   }, []);
