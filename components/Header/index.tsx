@@ -57,17 +57,29 @@ const Header: React.FC = () => {
               !isMenuOpen ? 'left-full' : 'left-0'
             } md:left-0`}
           >
-            <li className="hover:text-teal-500 cursor-pointer transition-colors">
-              Home
+            <li
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-teal-500 cursor-pointer transition-colors"
+            >
+              <a href="#hero">Home</a>
             </li>
-            <li className="hover:text-teal-500 cursor-pointer transition-colors">
-              About me
+            <li
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-teal-500 cursor-pointer transition-colors"
+            >
+              <a href="#about-me">About me</a>
             </li>
-            <li className="hover:text-teal-500 cursor-pointer transition-colors">
-              Recent projects
+            <li
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-teal-500 cursor-pointer transition-colors"
+            >
+              <a href="#recent-projects">Recent projects</a>
             </li>
-            <li className="hover:text-teal-500 cursor-pointer transition-colors">
-              Contact me
+            <li
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:text-teal-500 cursor-pointer transition-colors"
+            >
+              <a href="#contact-me">Contact me</a>
             </li>
             {isMobile && (
               <li>

@@ -35,7 +35,7 @@ const projects: ProjectItem[] = [
 
 const RecentProjects: React.FC = () => {
   return (
-    <Section>
+    <Section id="recent-projects">
       <SectionTitle className="mb-10">Recent projects</SectionTitle>
       <div className="flex flex-wrap gap-7 justify-center">
         {projects.map((project, idx) => (

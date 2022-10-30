@@ -18,7 +18,7 @@ const skills: [string, number][] = [
 
 const AboutMe: React.FC = () => {
   return (
-    <Section>
+    <Section id="about-me">
       <SectionTitle className="mb-10">About me</SectionTitle>
       <div className="flex flex-col gap-5 md:flex-row md:gap-8 items-start">
         <div className="flex flex-col items-center border-teal-500 border-2 md:flex-1 p-2 md:p-5">

@@ -4,7 +4,10 @@ import Typed from 'react-typed';
 const Hero: React.FC = () => {
   const onScrollClick = () => {};
   return (
-    <div className="relative h-screen flex items-center justify-center bg-gradient">
+    <div
+      id="hero"
+      className="relative h-screen flex items-center justify-center bg-gradient"
+    >
       <h1 className="text-xl md:text-3xl lg:text-4xl">
         <Typed
           strings={[
@@ -14,10 +17,7 @@ const Hero: React.FC = () => {
           typeSpeed={70}
         />
       </h1>
-      <button
-        onClick={onScrollClick}
-        className="absolute bottom-10 animate-bounce"
-      >
+      <a href="#about-me" className="absolute bottom-10 animate-bounce">
         <svg
           width="30"
           height="30"
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
             strokeLinejoin="round"
           />
         </svg>
-      </button>
+      </a>
     </div>
   );
 };
