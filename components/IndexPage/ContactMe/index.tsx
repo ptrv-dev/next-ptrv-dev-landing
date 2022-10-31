@@ -43,6 +43,7 @@ const ContactMe: React.FC = () => {
               href="https://t.me/u000000000000000000000"
               className="md:w-full md:flex"
               target={'_blank'}
+              rel="noreferrer"
             >
               <div className="flex gap-2 items-center md:flex-1">
                 <svg
@@ -72,6 +73,7 @@ const ContactMe: React.FC = () => {
               href="https://github.com/ptrv-dev"
               className="md:w-full md:flex"
               target={'_blank'}
+              rel="noreferrer"
             >
               <div className="flex gap-2 items-center md:flex-1">
                 <svg
