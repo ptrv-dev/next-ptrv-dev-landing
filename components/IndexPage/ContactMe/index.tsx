@@ -1,10 +1,21 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import { SubmitHandler } from 'react-hook-form/dist/types';
+import emailjs from '@emailjs/browser';
+
 import Section from '../../Section';
 import SectionSubtitle from '../../Section/SectionSubtitle';
 import SectionTitle from '../../Section/SectionTitle';
 
+interface GetInTouchForm {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const ContactMe: React.FC = () => {
   const [time, setTime] = React.useState<string>();
+
   React.useEffect(() => {
     const date = new Date();
     console.log();
@@ -14,6 +25,25 @@ const ContactMe: React.FC = () => {
       }${date.getMinutes()} | ${date.getDate()}.${date.getMonth()}.${date.getFullYear()} (UTC +03:00)`
     );
   }, []);
+
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit: SubmitHandler<GetInTouchForm> = async (data) => {
+    try {
+      await emailjs.send(
+        'service_wm8p4qa',
+        'template_tvnxmlc',
+        // @ts-ignore-next-line
+        data,
+        'uY3JdMvbXw62iflNU'
+      );
+      alert('Success!');
+    } catch (error) {
+      console.log(error);
+      alert('Get in Touch send Error...');
+    }
+  };
+
   return (
     <Section id="contact-me">
       <SectionTitle className="mb-10">Contact me</SectionTitle>
@@ -125,7 +155,11 @@ const ContactMe: React.FC = () => {
         </div>
         <div className="flex flex-col gap-5 bg-stone-700 p-5 items-stretch flex-1">
           <SectionSubtitle>Get in Touch</SectionSubtitle>
-          <div className="flex flex-col gap-3 md:px-5">
+          <form
+            // @ts-ignore-next-line
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-3 md:px-5"
+          >
             <div className="flex flex-col">
               <p className="mb-1">Your Name:</p>
               <div className="flex items-center gap-2 px-3 py-2 border-stone-50 border">
@@ -147,6 +181,7 @@ const ContactMe: React.FC = () => {
                 </svg>
                 <input
                   type="text"
+                  {...register('name', { required: true })}
                   className="bg-transparent flex-1"
                   placeholder="Enter your name..."
                 />
@@ -174,6 +209,7 @@ const ContactMe: React.FC = () => {
 
                 <input
                   type="email"
+                  {...register('email')}
                   className="bg-transparent flex-1"
                   placeholder="Enter your E-Mail..."
                 />
@@ -184,6 +220,7 @@ const ContactMe: React.FC = () => {
               <div className="flex items-center gap-2 px-3 py-2 border-stone-50 border">
                 <textarea
                   rows={5}
+                  {...register('message', { required: true })}
                   placeholder="Enter your message here..."
                   className="bg-transparent flex-1"
                 ></textarea>
@@ -195,7 +232,7 @@ const ContactMe: React.FC = () => {
             >
               Send
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </Section>
