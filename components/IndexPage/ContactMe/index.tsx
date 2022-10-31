@@ -6,13 +6,19 @@ import SectionTitle from '../../Section/SectionTitle';
 const ContactMe: React.FC = () => {
   const [time, setTime] = React.useState<string>();
   React.useEffect(() => {
-    setTime(Date());
+    const date = new Date();
+    console.log();
+    setTime(
+      `${date.getHours()}:${
+        date.getMinutes() < 10 ? 0 : ''
+      }${date.getMinutes()} | ${date.getDate()}.${date.getMonth()}.${date.getFullYear()} (UTC +03:00)`
+    );
   }, []);
   return (
     <Section id="contact-me">
       <SectionTitle className="mb-10">Contact me</SectionTitle>
-      <div className="flex flex-col gap-5 md:flex-row-reverse md:gap-10">
-        <div className="flex flex-col gap-5 md:flex-1 lg:basis-1/2">
+      <div className="flex flex-col gap-5 md:flex-row-reverse md:gap-7 lg:gap-16">
+        <div className="flex flex-col gap-5 md:text-lg flex-1">
           <h4 className="uppercase text-xl md:text-2xl">My contacts</h4>
           <div className="flex flex-col gap-3 items-start">
             <a href="mailto:3gomane@gmail.com" className="md:w-full md:flex">
@@ -115,7 +121,7 @@ const ContactMe: React.FC = () => {
             {time}
           </div>
         </div>
-        <div className="flex flex-col gap-5 bg-stone-700 p-5 items-stretch md:flex-1 lg:basis-1/3">
+        <div className="flex flex-col gap-5 bg-stone-700 p-5 items-stretch flex-1">
           <SectionSubtitle>Get in Touch</SectionSubtitle>
           <div className="flex flex-col gap-3 md:px-5">
             <div className="flex flex-col">

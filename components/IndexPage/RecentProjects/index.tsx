@@ -42,7 +42,7 @@ const RecentProjects: React.FC = () => {
           <RecentProjectsItem key={idx} {...project} />
         ))}
         {projects.length < 3 && (
-          <div className="bg-stone-700 flex items-center justify-center max-w-xs p-4 text-center text-xl uppercase">
+          <div className="bg-stone-700 flex items-center justify-center max-w-xs lg:max-w-none lg:flex-1 p-4 text-center text-xl uppercase">
             <h4>Soon there will be something in this place</h4>
           </div>
         )}
