@@ -15,6 +15,7 @@ interface GetInTouchForm {
 
 const ContactMe: React.FC = () => {
   const [time, setTime] = React.useState<string>();
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const date = new Date();
@@ -26,12 +27,17 @@ const ContactMe: React.FC = () => {
     );
   }, []);
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit: SubmitHandler<GetInTouchForm> = async (data) => {
     try {
+      setLoading(true);
       await emailjs.send(
-        'service_wm8p4qa',
+        'service_e7zlxpv',
         'template_tvnxmlc',
         // @ts-ignore-next-line
         data,
@@ -40,7 +46,9 @@ const ContactMe: React.FC = () => {
       alert('Success!');
     } catch (error) {
       console.log(error);
-      alert('Get in Touch send Error...');
+      alert('Something going wrong :c');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -162,7 +170,13 @@ const ContactMe: React.FC = () => {
           >
             <div className="flex flex-col">
               <p className="mb-1">Your Name:</p>
-              <div className="flex items-center gap-2 px-3 py-2 border-stone-50 border">
+              <div
+                className={`flex items-center gap-2 px-3 py-2 ${
+                  errors.name
+                    ? 'border-red-700 text-red-700'
+                    : 'border-stone-50'
+                } border`}
+              >
                 <svg
                   width="14"
                   height="14"
@@ -177,19 +191,31 @@ const ContactMe: React.FC = () => {
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className={`${errors.name ? 'stroke-red-700' : ''}`}
                   />
                 </svg>
                 <input
                   type="text"
-                  {...register('name', { required: true })}
-                  className="bg-transparent flex-1"
+                  {...register('name', {
+                    required: true,
+                    minLength: 3,
+                    maxLength: 100,
+                  })}
+                  className="bg-transparent flex-1 outline-none"
                   placeholder="Enter your name..."
                 />
               </div>
             </div>
+
             <div className="flex flex-col">
               <p className="mb-1">Your Email:</p>
-              <div className="flex items-center gap-2 px-3 py-2 border-stone-50 border">
+              <div
+                className={`flex items-center gap-2 px-3 py-2 ${
+                  errors.email
+                    ? 'border-red-700 text-red-700'
+                    : 'border-stone-50'
+                } border`}
+              >
                 <svg
                   width="14"
                   height="14"
@@ -204,33 +230,76 @@ const ContactMe: React.FC = () => {
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className={`${errors.email ? 'stroke-red-700' : ''}`}
                   />
                 </svg>
 
                 <input
-                  type="email"
-                  {...register('email')}
-                  className="bg-transparent flex-1"
+                  type="text"
+                  {...register('email', {
+                    required: true,
+                    pattern: /^\S+@\S+$/i,
+                  })}
+                  className="bg-transparent flex-1 outline-none"
                   placeholder="Enter your E-Mail..."
                 />
               </div>
             </div>
             <div className="flex flex-col">
               <p className="mb-1">Your Message:</p>
-              <div className="flex items-center gap-2 px-3 py-2 border-stone-50 border">
+              <div
+                className={`flex items-center gap-2 px-3 py-2 border ${
+                  errors.message
+                    ? 'border-red-700 text-red-700'
+                    : 'border-stone-50'
+                }`}
+              >
                 <textarea
                   rows={5}
-                  {...register('message', { required: true })}
+                  {...register('message', {
+                    required: true,
+                    minLength: 5,
+                    maxLength: 300,
+                  })}
                   placeholder="Enter your message here..."
-                  className="bg-transparent flex-1"
+                  className="bg-transparent flex-1 outline-none"
                 ></textarea>
               </div>
             </div>
             <button
               type="submit"
-              className="1 bg-teal-700 py-2 text-lg uppercase"
+              disabled={Object.keys(errors).length > 0 || loading}
+              className="bg-teal-700 py-2 text-lg uppercase disabled:opacity-50 disabled:cursor-no-drop flex items-center justify-center gap-1"
             >
               Send
+              {loading && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16px"
+                  height="16px"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="xMidYMid"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    fill="none"
+                    stroke="#fafaf9"
+                    strokeWidth="10"
+                    r="35"
+                    strokeDasharray="164.93361431346415 56.97787143782138"
+                  >
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      repeatCount="indefinite"
+                      dur="1s"
+                      values="0 50 50;360 50 50"
+                      keyTimes="0;1"
+                    ></animateTransform>
+                  </circle>
+                </svg>
+              )}
             </button>
           </form>
         </div>
