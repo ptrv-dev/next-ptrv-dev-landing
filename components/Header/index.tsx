@@ -28,6 +28,7 @@ const LanguageButton = () => {
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
   const [isMobile, setIsMobile] = React.useState<boolean>(true);
+  const [isScroll, setIsScroll] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const resize = () => {
@@ -40,13 +41,27 @@ const Header: React.FC = () => {
     window.addEventListener('resize', resize);
     if (!(window.innerWidth < 768)) setIsMobile(false);
 
-    return () => window.removeEventListener('resize', resize);
+    const getScroll = () => {
+      if (window.scrollY > 320) setIsScroll(true);
+      else setIsScroll(false);
+    };
+
+    window.addEventListener('scroll', getScroll);
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('scroll', getScroll);
+    };
   }, []);
 
   const onClickMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <header className="fixed z-50 w-full py-6 md:py-10">
+    <header
+      className={`fixed z-50 w-full transition-all ${
+        isScroll ? 'bg-stone-800 py-6 shadow-lg' : 'py-6 md:py-10'
+      }`}
+    >
       <div className="container flex justify-between items-center">
         <Link href="/" className="shrink-0 z-10">
           <img src="./static/img/logo.svg" alt="" />
