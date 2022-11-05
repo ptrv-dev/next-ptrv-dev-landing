@@ -1,7 +1,9 @@
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import React from 'react';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <footer>
       <div className="container py-5">
@@ -12,16 +14,16 @@ const Footer: React.FC = () => {
           <nav className="hidden md:block">
             <ul className="flex gap-5 lg:gap-7 uppercase">
               <li className="hover:text-teal-500 cursor-pointer transition-colors">
-                <a href="#hero">Home</a>
+                <a href="#hero">{t('header.home')}</a>
               </li>
               <li className="hover:text-teal-500 cursor-pointer transition-colors">
-                <a href="#about-me">About me</a>
+                <a href="#about-me">{t('header.about_me')}</a>
               </li>
               <li className="hover:text-teal-500 cursor-pointer transition-colors">
-                <a href="#recent-projects">Recent projects</a>
+                <a href="#recent-projects">{t('header.recent_projects')}</a>
               </li>
               <li className="hover:text-teal-500 cursor-pointer transition-colors">
-                <a href="#contact-me">Contact me</a>
+                <a href="#contact-me">{t('header.contact_me')}</a>
               </li>
             </ul>
           </nav>
@@ -42,7 +44,11 @@ const Footer: React.FC = () => {
                 />
               </svg>
             </a>
-            <a href="https://t.me/u000000000000000000000">
+            <a
+              href="https://t.me/u000000000000000000000"
+              target="_blank"
+              rel="noreferrer"
+            >
               <svg
                 width="25"
                 height="24"
@@ -58,7 +64,11 @@ const Footer: React.FC = () => {
                 />
               </svg>
             </a>
-            <a href="https://github.com/ptrv-dev">
+            <a
+              href="https://github.com/ptrv-dev"
+              target="_blank"
+              rel="noreferrer"
+            >
               <svg
                 width="24"
                 height="24"

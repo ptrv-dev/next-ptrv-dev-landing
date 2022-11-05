@@ -1,8 +1,9 @@
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 import Typed from 'react-typed';
 
-const Hero: React.FC = () => {
-  const onScrollClick = () => {};
+const Hero = () => {
+  const { t } = useTranslation();
   return (
     <div
       id="hero"
@@ -11,8 +12,8 @@ const Hero: React.FC = () => {
       <h1 className="text-xl md:text-3xl lg:text-4xl">
         <Typed
           strings={[
-            '&gt; Hello, I&apos;m Kirill Petrov',
-            '&gt; Hello, I&apos;m Kirill Petrov<br />&gt; I can make you a cool <span class="relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-stone-50">website</span>.',
+            `${t('hero.title1')}`,
+            `${t('hero.title1')}<br />${t('hero.title2')}`,
           ]}
           typeSpeed={70}
         />

@@ -4,13 +4,10 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import '../styles/globals.scss';
+import { appWithTranslation } from 'next-i18next';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </>
-  );
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }
+
+export default appWithTranslation(App);

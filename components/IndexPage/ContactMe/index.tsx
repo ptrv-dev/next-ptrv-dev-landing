@@ -6,6 +6,7 @@ import emailjs from '@emailjs/browser';
 import Section from '../../Section';
 import SectionSubtitle from '../../Section/SectionSubtitle';
 import SectionTitle from '../../Section/SectionTitle';
+import { useTranslation } from 'next-i18next';
 
 interface GetInTouchForm {
   name: string;
@@ -16,6 +17,8 @@ interface GetInTouchForm {
 const ContactMe: React.FC = () => {
   const [time, setTime] = React.useState<string>();
   const [loading, setLoading] = React.useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     const date = new Date();
@@ -54,10 +57,12 @@ const ContactMe: React.FC = () => {
 
   return (
     <Section id="contact-me">
-      <SectionTitle className="mb-10">Contact me</SectionTitle>
+      <SectionTitle className="mb-10">{t('headings.contact_me')}</SectionTitle>
       <div className="flex flex-col gap-5 md:flex-row-reverse md:gap-7 lg:gap-16">
         <div className="flex flex-col gap-5 md:text-lg flex-1">
-          <h4 className="uppercase text-xl md:text-2xl">My contacts</h4>
+          <h4 className="uppercase text-xl md:text-2xl">
+            {t('contact_me.my_contacts')}
+          </h4>
           <div className="flex flex-col gap-3 items-start">
             <a href="mailto:3gomane@gmail.com" className="md:w-full md:flex">
               <div className="flex gap-2 items-center md:flex-1">
@@ -139,7 +144,7 @@ const ContactMe: React.FC = () => {
             </a>
           </div>
           <h4 className="uppercase text-xl md:text-2xl">
-            My current local time
+            {t('contact_me.my_time')}
           </h4>
           <div className="flex gap-2 items-center">
             <svg
@@ -162,14 +167,14 @@ const ContactMe: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col gap-5 bg-stone-700 p-5 items-stretch flex-1">
-          <SectionSubtitle>Get in Touch</SectionSubtitle>
+          <SectionSubtitle>{t('contact_me.get_in_touch')}</SectionSubtitle>
           <form
             // @ts-ignore-next-line
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-3 md:px-5"
           >
             <div className="flex flex-col">
-              <p className="mb-1">Your Name:</p>
+              <p className="mb-1">{t('contact_me.form_name.label')}</p>
               <div
                 className={`flex items-center gap-2 px-3 py-2 ${
                   errors.name
@@ -202,13 +207,13 @@ const ContactMe: React.FC = () => {
                     maxLength: 100,
                   })}
                   className="bg-transparent flex-1 outline-none"
-                  placeholder="Enter your name..."
+                  placeholder={t('contact_me.form_name.placeholder')}
                 />
               </div>
             </div>
 
             <div className="flex flex-col">
-              <p className="mb-1">Your Email:</p>
+              <p className="mb-1">{t('contact_me.form_email.label')}</p>
               <div
                 className={`flex items-center gap-2 px-3 py-2 ${
                   errors.email
@@ -241,12 +246,12 @@ const ContactMe: React.FC = () => {
                     pattern: /^\S+@\S+$/i,
                   })}
                   className="bg-transparent flex-1 outline-none"
-                  placeholder="Enter your E-Mail..."
+                  placeholder={t('contact_me.form_email.placeholder')}
                 />
               </div>
             </div>
             <div className="flex flex-col">
-              <p className="mb-1">Your Message:</p>
+              <p className="mb-1">{t('contact_me.form_message.label')}</p>
               <div
                 className={`flex items-center gap-2 px-3 py-2 border ${
                   errors.message
@@ -261,7 +266,7 @@ const ContactMe: React.FC = () => {
                     minLength: 5,
                     maxLength: 300,
                   })}
-                  placeholder="Enter your message here..."
+                  placeholder={t('contact_me.form_message.placeholder')}
                   className="bg-transparent flex-1 outline-none"
                 ></textarea>
               </div>
@@ -271,7 +276,7 @@ const ContactMe: React.FC = () => {
               disabled={Object.keys(errors).length > 0 || loading}
               className="bg-teal-700 py-2 text-lg uppercase disabled:opacity-50 disabled:cursor-no-drop flex items-center justify-center gap-1"
             >
-              Send
+              {t('contact_me.form_send')}
               {loading && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

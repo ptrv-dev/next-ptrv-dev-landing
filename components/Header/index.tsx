@@ -1,31 +1,46 @@
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import React from 'react';
 
 const LanguageButton = () => {
+  const [isActive, setIsActive] = React.useState(false);
   return (
-    <button className="flex group uppercase items-center gap-2 transition-colors hover:text-teal-500">
-      <span>Eng</span>
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+    <div className="relative">
+      <button
+        className="flex group uppercase items-center gap-2 transition-colors relative"
+        onClick={() => setIsActive((prev) => !prev)}
       >
-        <path
-          className="group-hover:stroke-teal-500 transition-colors"
-          d="M13 5.5L8 10.5L3 5.5"
-          stroke="#F5F5F4"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </button>
+        <span className="group-hover:text-teal-500">en</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            className="group-hover:stroke-teal-500 transition-colors"
+            d="M13 5.5L8 10.5L3 5.5"
+            stroke="#F5F5F4"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      {isActive && (
+        <ul className="uppercase absolute bg-stone-700 w-full flex flex-col items-center gap-1 py-1 mt-1">
+          <li className="hover:text-teal-500 cursor-pointer">ua</li>
+          <li className="hover:text-teal-500 cursor-pointer">en</li>
+          <li className="hover:text-teal-500 cursor-pointer">ru</li>
+        </ul>
+      )}
+    </div>
   );
 };
 
 const Header: React.FC = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
   const [isMobile, setIsMobile] = React.useState<boolean>(true);
   const [isScroll, setIsScroll] = React.useState<boolean>(false);
@@ -76,25 +91,25 @@ const Header: React.FC = () => {
               onClick={() => setIsMenuOpen(false)}
               className="hover:text-teal-500 cursor-pointer transition-colors"
             >
-              <a href="#hero">Home</a>
+              <a href="#hero">{t('header.home')}</a>
             </li>
             <li
               onClick={() => setIsMenuOpen(false)}
               className="hover:text-teal-500 cursor-pointer transition-colors"
             >
-              <a href="#about-me">About me</a>
+              <a href="#about-me">{t('header.about_me')}</a>
             </li>
             <li
               onClick={() => setIsMenuOpen(false)}
               className="hover:text-teal-500 cursor-pointer transition-colors"
             >
-              <a href="#recent-projects">Recent projects</a>
+              <a href="#recent-projects">{t('header.recent_projects')}</a>
             </li>
             <li
               onClick={() => setIsMenuOpen(false)}
               className="hover:text-teal-500 cursor-pointer transition-colors"
             >
-              <a href="#contact-me">Contact me</a>
+              <a href="#contact-me">{t('header.contact_me')}</a>
             </li>
             {isMobile && (
               <li>
