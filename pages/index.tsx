@@ -12,7 +12,6 @@ import Hero from '../components/IndexPage/Hero';
 import RecentProjects from '../components/IndexPage/RecentProjects';
 
 const IndexPage: NextPage = () => {
-  const { t } = useTranslation();
   return (
     <>
       <Header />
@@ -34,6 +33,7 @@ const IndexPage: NextPage = () => {
 
 export default IndexPage;
 
+// @ts-ignore-next-line
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale)),
