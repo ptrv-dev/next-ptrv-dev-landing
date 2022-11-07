@@ -11,7 +11,7 @@ const RecentProjectsItem: React.FC<ProjectItem> = ({
   gitHubUrl,
 }) => {
   return (
-    <div className="flex flex-col p-4 max-w-xs lg:max-w-none lg:flex-1 bg-stone-700">
+    <div className="flex flex-col p-4 max-w-sm lg:max-w-none lg:flex-1 bg-stone-700">
       <img
         src={'./static/img/' + image}
         alt={title}

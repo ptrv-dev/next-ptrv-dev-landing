@@ -119,7 +119,7 @@ const Header: React.FC = () => {
         </Link>
         <nav>
           <ul
-            className={`flex gap-7 items-center uppercase flex-col fixed transition-position bg-stone-900 top-0 w-full h-full pt-24 text-xl md:text-base md:bg-transparent md:relative md:flex-row md:p-0 ${
+            className={`flex gap-4 lg:gap-8 items-center uppercase flex-col fixed transition-position bg-stone-900 top-0 w-full h-full pt-24 text-xl md:text-base md:bg-transparent md:relative md:flex-row md:p-0 ${
               !isMenuOpen ? 'left-full' : 'left-0'
             } md:left-0`}
           >
