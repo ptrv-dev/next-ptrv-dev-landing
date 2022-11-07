@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ProjectItem } from '..';
 
 const RecentProjectsItem: React.FC<ProjectItem> = ({
@@ -27,7 +28,7 @@ const RecentProjectsItem: React.FC<ProjectItem> = ({
         ))}
       </div>
       <p className="text-lg font-bold uppercase">{title}</p>
-      <p className="text-xs text-stone-100 mb-3">{description}</p>
+      <p className="text-xs text-stone-100 mb-3 flex-1">{description}</p>
       <div className="flex gap-4">
         <a
           href={demoUrl}

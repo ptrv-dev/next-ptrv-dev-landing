@@ -1,16 +1,37 @@
-import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 const LanguageButton = () => {
   const [isActive, setIsActive] = React.useState(false);
+  const buttonRef = React.useRef<HTMLDivElement>(null);
+
+  const router = useRouter();
+
+  React.useEffect(() => setIsActive(false), [router.locale]);
+
+  React.useEffect(() => {
+    const clickOutside = (event: MouseEvent) => {
+      if (
+        buttonRef.current &&
+        !event.composedPath().includes(buttonRef.current)
+      )
+        setIsActive(false);
+    };
+
+    window.addEventListener('click', clickOutside);
+
+    return () => window.removeEventListener('click', clickOutside);
+  }, []);
+
   return (
-    <div className="relative">
+    <div ref={buttonRef} className="relative">
       <button
         className="flex group uppercase items-center gap-2 transition-colors relative"
         onClick={() => setIsActive((prev) => !prev)}
       >
-        <span className="group-hover:text-teal-500">en</span>
+        <span className="group-hover:text-teal-500">{router.locale}</span>
         <svg
           width="16"
           height="16"
@@ -30,9 +51,24 @@ const LanguageButton = () => {
       </button>
       {isActive && (
         <ul className="uppercase absolute bg-stone-700 w-full flex flex-col items-center gap-1 py-1 mt-1">
-          <li className="hover:text-teal-500 cursor-pointer">ua</li>
-          <li className="hover:text-teal-500 cursor-pointer">en</li>
-          <li className="hover:text-teal-500 cursor-pointer">ru</li>
+          <Link href={'/'} locale="en">
+            <li
+              className={`hover:text-teal-500 cursor-pointer ${
+                router.locale === 'en' ? 'text-teal-500' : ''
+              }`}
+            >
+              en
+            </li>
+          </Link>
+          <Link href={'/'} locale="ru">
+            <li
+              className={`hover:text-teal-500 cursor-pointer ${
+                router.locale === 'ru' ? 'text-teal-500' : ''
+              }`}
+            >
+              ru
+            </li>
+          </Link>
         </ul>
       )}
     </div>

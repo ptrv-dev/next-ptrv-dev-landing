@@ -1,5 +1,6 @@
-import { useTranslation } from 'next-i18next';
 import React from 'react';
+import { useTranslation } from 'next-i18next';
+
 import Section from '../../Section';
 import SectionTitle from '../../Section/SectionTitle';
 import RecentProjectsItem from './RecentProjectsItem';
@@ -21,19 +22,34 @@ const RecentProjects: React.FC = () => {
       image: 'recent-projects/1.png',
       title: t('recent_projects.first.title'),
       description: t('recent_projects.first.description'),
-      tags: ['ReactJS', 'TypeScript', 'E-Commerce'],
-      demoUrl: 'https://agro-corp.net.ua/',
-      gitHubUrl: 'https://github.com/ptrv-dev/react-agrocorp',
+      tags: [
+        'ReactJS',
+        'TypeScript',
+        'TailwindCSS',
+        'Redux-Toolkit',
+        'E-Commerce',
+      ],
+      demoUrl: 'https://react-pizza-v2-psi.vercel.app/',
+      gitHubUrl: 'https://github.com/ptrv-dev/react-pizza-v2',
     },
     {
       image: 'recent-projects/2.png',
       title: t('recent_projects.second.title'),
       description: t('recent_projects.second.description'),
+      tags: ['ReactJS', 'Redux-Toolkit', 'TypeScript', 'E-Commerce'],
+      demoUrl: 'https://agro-corp.net.ua/',
+      gitHubUrl: 'https://github.com/ptrv-dev/react-agrocorp',
+    },
+    {
+      image: 'recent-projects/3.png',
+      title: t('recent_projects.third.title'),
+      description: t('recent_projects.third.description'),
       tags: ['ReactJS', 'NextJS', 'TypeScript', 'E-Commerce'],
       demoUrl: 'https://next-monito.vercel.app/',
       gitHubUrl: 'https://github.com/ptrv-dev/next-monito',
     },
   ];
+
   return (
     <Section id="recent-projects">
       <SectionTitle className="mb-10">

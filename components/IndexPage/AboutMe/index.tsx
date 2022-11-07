@@ -1,5 +1,6 @@
-import { useTranslation } from 'next-i18next';
 import React from 'react';
+import { useTranslation } from 'next-i18next';
+
 import Section from '../../Section';
 import SectionSubtitle from '../../Section/SectionSubtitle';
 import SectionTitle from '../../Section/SectionTitle';
@@ -19,6 +20,7 @@ const skills: [string, number][] = [
 
 const AboutMe: React.FC = () => {
   const { t } = useTranslation();
+
   return (
     <Section id="about-me">
       <SectionTitle className="mb-10">{t('headings.about_me')}</SectionTitle>

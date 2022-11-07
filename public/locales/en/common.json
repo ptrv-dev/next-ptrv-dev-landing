@@ -13,17 +13,22 @@
     "contact_me": "Contact me"
   },
   "hero": {
-    "title1": "> Hello, I'm Kirill Petrov",
-    "title2": "> I can make you a cool <span class=\"relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-stone-50\">website</span>."
+    "title1": "> Hello, my name is Kirill.",
+    "title2": "> I'm web-developer.",
+    "title3": "> I can make you a cool website."
   },
   "about_me": "As you may have noticed earlier, my name is Kirill. I'm a web developer.\nMy first experience in programming was as a kid, when instead of playing games, I created them.\nMy journey in website development began around 2018. It all started with static sites in HTML, CSS, and Vanilla JS. For a long time I did regular layout without using JavaScript frameworks like ReactJS.{nIn some time (early 2022) I came to a JavaScript framework, namely ReactJS. At this point I have experience and can develop both standard HTML sites (on my own build of Gulp4) and dynamic sites on ReactJS / NextJS. I easily master new technologies and learn something new every day. You can see examples of my work below on this site, as well as in my profile on GitHub.\nFull open for cooperation, ready to answer any your question (just do not ask what I ate this morning). Forms of contact with me are listed on this site just below.{nIf you have read to this point, I want to thank you for your time and attention to my portfolio, have a nice day :*",
   "recent_projects": {
     "demo": "Demo",
     "first": {
+      "title": "React Pizza",
+      "description": "A commercial pizza website created using ReactJS. The design is made by me, I used CSS framework - TailwindCSS. The site is easy to use and adaptive for all devices."
+    },
+    "second": {
       "title": "«AgroCorp» LLC",
       "description": "Commercial website for the sale of agricultural machinery and agricultural spare parts. The site is written entirely from scratch by the design that I created. The site is adaptive and easy to use."
     },
-    "second": {
+    "third": {
       "title": "MONITO | PETS FOR BEST",
       "description": "Commercial website that offers for sale various breeds of dogs, as well as products related to your pets. (not a real project)"
     },

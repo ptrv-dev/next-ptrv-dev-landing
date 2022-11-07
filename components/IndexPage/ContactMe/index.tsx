@@ -2,11 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { SubmitHandler } from 'react-hook-form/dist/types';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from 'next-i18next';
 
 import Section from '../../Section';
 import SectionSubtitle from '../../Section/SectionSubtitle';
 import SectionTitle from '../../Section/SectionTitle';
-import { useTranslation } from 'next-i18next';
 
 interface GetInTouchForm {
   name: string;
@@ -58,7 +58,7 @@ const ContactMe: React.FC = () => {
   return (
     <Section id="contact-me">
       <SectionTitle className="mb-10">{t('headings.contact_me')}</SectionTitle>
-      <div className="flex flex-col gap-5 md:flex-row-reverse md:gap-7 lg:gap-16">
+      <div className="flex flex-col gap-5 md:flex-row-reverse md:gap-8">
         <div className="flex flex-col gap-5 md:text-lg flex-1">
           <h4 className="uppercase text-xl md:text-2xl">
             {t('contact_me.my_contacts')}
