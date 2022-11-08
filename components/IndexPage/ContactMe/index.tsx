@@ -83,7 +83,7 @@ const ContactMe: React.FC = () => {
               <p className="md:flex-1">3gomane@gmail.com</p>
             </a>
             <a
-              href="https://t.me/u000000000000000000000"
+              href="https://t.me/ptrv_dev"
               className="md:w-full md:flex"
               target={'_blank'}
               rel="noreferrer"
@@ -110,7 +110,7 @@ const ContactMe: React.FC = () => {
                 </svg>
                 Telegram
               </div>
-              <p className="md:flex-1">@u000000000000000000000</p>
+              <p className="md:flex-1">@ptrv_dev</p>
             </a>
             <a
               href="https://github.com/ptrv-dev"
