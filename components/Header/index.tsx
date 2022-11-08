@@ -115,7 +115,7 @@ const Header: React.FC = () => {
     >
       <div className="container flex justify-between items-center">
         <Link href="/" className="shrink-0 z-10">
-          <img src="./static/img/logo.svg" alt="" />
+          <img src="./static/img/logo.svg" alt="Logo" />
         </Link>
         <nav>
           <ul

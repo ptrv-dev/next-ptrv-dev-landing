@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="container py-5">
         <div className="flex items-center justify-between pb-5">
           <Link href="/" className="shrink-0 z-10">
-            <img src="./static/img/logo.svg" alt="" />
+            <img src="./static/img/logo.svg" alt="Logo" />
           </Link>
           <nav className="hidden md:block">
             <ul className="flex gap-5 lg:gap-7 uppercase">
